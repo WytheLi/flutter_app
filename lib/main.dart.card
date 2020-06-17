@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){
+    var card = new Card(
+      child: Column(
+        children: [
+          ListTile(
+            title: new Text('湖南大学', style: TextStyle(fontWeight: FontWeight.w500)),
+            subtitle: new Text('招生办：0730-0000'),
+            leading: new Icon(Icons.account_box, color: Colors.lightBlue),
+          ),
+          new Divider(),  // 分割线
+
+          ListTile(
+            title: new Text('长沙理工大学', style: TextStyle(fontWeight: FontWeight.w500)),
+            subtitle: new Text('招生办：0730-1111'),
+            leading: new Icon(Icons.account_box, color: Colors.lightBlue),
+          ),
+          new Divider(),
+
+          ListTile(
+            title: new Text('中南大学', style: TextStyle(fontWeight: FontWeight.w500)),
+            subtitle: new Text('招生办：0730-2222'),
+            leading: new Icon(Icons.account_box, color: Colors.lightBlue),
+          ),
+          new Divider()
+        ]
+      )
+    );
+
+    return MaterialApp(
+      title: 'Demo',
+      home: Scaffold(
+        appBar: new AppBar(
+          title: new Text('卡片布局'),
+        ),
+        body: Center(child: card,),
+      ),
+    );
+  }
+}

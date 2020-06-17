@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+
+
+void main(){
+  runApp(MaterialApp(
+    title: '导航演示01',
+    home: new FrstScreen(),
+  ));
+}
+
+class FrstScreen extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(title: Text('导航页面'),),
+      body: Center(
+        child: RaisedButton(
+          child: Text('查看商品详情页面'),
+          onPressed: (){  // 点击事件
+            // 跳转到下一个页面
+            Navigator.push(context, new MaterialPageRoute(
+              builder: (context) => new SecondScreen()
+            ));
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(title: Text('商品详情页'),),
+      body: Center(
+        child: RaisedButton(
+          child: Text('返回'),
+          onPressed: (){
+            // 返回上一个页面
+            Navigator.pop(context);          
+          },
+        ),
+      ),
+    );
+  }
+}

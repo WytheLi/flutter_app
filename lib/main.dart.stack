@@ -1,0 +1,78 @@
+// import 'package:flutter/material.dart';
+
+// void main() => runApp(MyApp());
+
+// stack层叠布局
+// class MyApp extends StatelessWidget{
+//   @override 
+//   Widget build(BuildContext context){
+//     var stack = new Stack(
+//       alignment: const FractionalOffset(0.5, 0.8),
+//       children: [
+//         new CircleAvatar(
+//           backgroundImage: new NetworkImage('http://47.101.37.196/static/images/viewpager/bc47c3cb740d7ad1e883e922a689c8ba.jpg'),
+//           radius: 100.0,
+//         ),
+
+//         new Container(
+//           decoration: new BoxDecoration(
+//             color: Colors.orange,
+//           ),
+//           padding: EdgeInsets.all(5.0),
+//           child: new Text('加油，阿威！'),
+//         )
+//       ],
+//     );
+
+//     return MaterialApp(
+//       title: 'Demo',
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text('Stack层叠布局')
+//         ),
+//         body: Center(child: stack,),
+//       ),
+//     );
+//   }
+// }
+
+
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){
+    var stack = new Stack(
+      children: [
+        new CircleAvatar(
+          backgroundImage: new NetworkImage('http://47.101.37.196/static/images/viewpager/bc47c3cb740d7ad1e883e922a689c8ba.jpg'),
+          radius: 100.0,
+        ),
+
+        // 实现多个组件的层叠，Positioned组件
+        new Positioned(
+          top: 10.0,
+          left: 10.0,
+          child: new Text('加油，阿威！')
+        ),
+        new Positioned(
+          bottom: 10.0,
+          right: 10.0,
+          child: new Text('willi'),
+        )
+      ]
+    );
+
+    return MaterialApp(
+      title: 'Demo',
+      home: Scaffold(
+        appBar: new AppBar(
+          title: new Text('层叠布局'),
+        ),
+        body: Center(child: stack,),
+      ),
+    );
+  }
+}

@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(MaterialApp(
+    title: '页面跳转返回数据',
+    home: FirstPage()
+  ));
+}
+
+class FirstPage extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(title: Text('下单页面'),),
+      body: Center(
+        child: RouteButton(),
+      ),
+    );
+  }
+}
+
+// 跳转的button
+class RouteButton extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){
+    return RaisedButton(
+      onPressed: (){
+        _navigateToAddrees(context);
+      },
+      child: Text('选择收货地址'),
+    );
+  }
+
+  _navigateToAddrees(BuildContext context) async{   // async启用异步方法
+    final result = await Navigator.push(context, MaterialPageRoute(
+      builder: (context) => Address()
+    ));
+
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text('$result')));
+  }
+}
+
+class Address extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(title: Text('收货地址'),),
+      body: Center(
+        child: Column(
+          children: [
+            RaisedButton(
+              child: Text('松江泗泾新苑西区'),
+              // color: Colors.lightBlue,
+              onPressed: (){
+                Navigator.pop(context, '松江泗泾新苑西区');
+              },
+            ),
+            RaisedButton(
+              child: Text('浦东唐镇绿波城'),
+              onPressed: (){
+                Navigator.pop(context, '浦东唐镇绿波城');
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
