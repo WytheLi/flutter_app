@@ -50,6 +50,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - images/touxiang.jpg
+    - images/77a1f236afc37931cc4ba09ce6c4b74543a91130.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
